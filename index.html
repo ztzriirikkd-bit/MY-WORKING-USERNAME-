@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HACKER TEAM OFC</title>
+<title>HACKER TEAM OFC</title>
+
+<style>
+body {
+  background:#020617;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+}
+
+.card {
+  background:#1e293b;
+  margin:20px;
+  padding:20px;
+  border-radius:15px;
+}
+
+a {
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 20px;
+  background:#22c55e;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+}
+
+iframe {
+  margin-top:10px;
+  border-radius:10px;
+}
+</style>
+
 </head>
-<body style="background:#020617;color:white;text-align:center;font-family:Arial">
+
+<body>
 
 <h1>🔥 HACKER TEAM OFC 🔥</h1>
 
-<h3>📥 Download APK</h3>
-<a id="downloadBtn" href="#" style="padding:10px 20px;background:green;color:white;text-decoration:none">
-⬇ Download
-</a>
+<!-- TELEGRAM -->
+<div class="card">
+  <h3>📢 Join Telegram</h3>
+  <a href="https://t.me/+_2DzGrWFGXU5NmNl" target="_blank">
+    JOIN NOW
+  </a>
+</div>
 
-<h3>🎥 Watch Video</h3>
-<iframe id="videoFrame" width="300" height="200" allowfullscreen></iframe>
+<!-- DOWNLOAD -->
+<div class="card">
+  <h3>📦 FREE FIRE PANEL APK</h3>
+  <a href="https://your-apk-link.com/app.apk" download>
+    DOWNLOAD 
+  </a>
+</div>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDUMMYKEY123456",
-  authDomain: "hacker-xaman.firebaseapp.com",
-  databaseURL: "https://hacker-xaman-default-rtdb.firebaseio.com",
-  projectId: "hacker-xaman"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-onValue(ref(db, "app"), (snapshot) => {
-  const data = snapshot.val();
-  if(data){
-    document.getElementById("downloadBtn").href = data.apk;
-    document.getElementById("videoFrame").src =
-      "https://www.youtube.com/embed/" + data.video;
-  }
-});
-</script>
+<!-- VIDEO -->
+<div class="card">
+  <h3>🎬 SETUP VIDEO</h3>
+  <iframe 
+    width="300" 
+    height="200"
+    src="https://youtube.com/shorts/qPnB4GZZgYs?si=_q2o-RJBhOCZ3wFn"
+    allowfullscreen>
+  </iframe>
+</div>
 
 </body>
 </html>
