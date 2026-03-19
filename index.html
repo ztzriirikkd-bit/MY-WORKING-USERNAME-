@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Download App</title>
+  <title>HACKER TEAM OFC</title>
 </head>
 <body style="background:#020617;color:white;text-align:center;font-family:Arial">
 
-<h2>DOWNLOAD APP</h2>
+<h1>🔥 HACKER TEAM OFC 🔥</h1>
 
-<a id="downloadBtn" href="#" style="padding:10px 20px;background:blue;color:white;text-decoration:none">
-Download APK
+<h3>📥 Download APK</h3>
+<a id="downloadBtn" href="#" style="padding:10px 20px;background:green;color:white;text-decoration:none">
+⬇ Download
 </a>
 
-<h2>VIDEO</h2>
-<iframe id="videoFrame" width="300" height="200"></iframe>
+<h3>🎥 Watch Video</h3>
+<iframe id="videoFrame" width="300" height="200" allowfullscreen></iframe>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -30,7 +31,6 @@ const db = getDatabase(app);
 
 onValue(ref(db, "app"), (snapshot) => {
   const data = snapshot.val();
-
   if(data){
     document.getElementById("downloadBtn").href = data.apk;
     document.getElementById("videoFrame").src =
