@@ -1,77 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hacker Team OFC</title>
-
-<style>
-body {
-    background: linear-gradient(135deg,#020617,#0f172a);
-    color:white;
-    text-align:center;
-    font-family:Arial;
-}
-.box {
-    background:#1e293b;
-    padding:25px;
-    margin:60px auto;
-    width:90%;
-    max-width:320px;
-    border-radius:15px;
-}
-button {
-    padding:12px;
-    background:#22c55e;
-    border:none;
-    border-radius:8px;
-    color:white;
-    cursor:pointer;
-}
-iframe {
-    margin-top:10px;
-    border-radius:10px;
-}
-</style>
-
+  <title>Download App</title>
 </head>
-<body>
+<body style="background:#020617;color:white;text-align:center;font-family:Arial">
 
-<div class="box">
+<h2>DOWNLOAD APP</h2>
 
-<h2>🔥 HACKER TEAM OFC 🔥</h2>
-
-<h3>📥 Download APK</h3>
-<a id="downloadLink" href="#" target="_blank">
-<button>⬇ Download</button>
+<a id="downloadBtn" href="#" style="padding:10px 20px;background:blue;color:white;text-decoration:none">
+Download APK
 </a>
 
-<h3>🎥 Watch Video</h3>
-<iframe id="videoFrame" width="100%" height="180"></iframe>
+<h2>VIDEO</h2>
+<iframe id="videoFrame" width="300" height="200"></iframe>
 
-</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-<script>
-
-var firebaseConfig = {
-  apiKey: "AIzaSyCMNr0GmJNf1-6tmODKR18mfrE-Nyy4YfI",
+const firebaseConfig = {
+  apiKey: "AIzaSyDUMMYKEY123456",
   authDomain: "hacker-xaman.firebaseapp.com",
   databaseURL: "https://hacker-xaman-default-rtdb.firebaseio.com",
-  projectId: "hacker-xaman",
+  projectId: "hacker-xaman"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-firebase.database().ref("app").on("value", function(snapshot){
-    var data = snapshot.val();
+onValue(ref(db, "app"), (snapshot) => {
+  const data = snapshot.val();
 
-    if(data){
-        document.getElementById("downloadLink").href = data.apk;
-        document.getElementById("videoFrame").src = "https://www.youtube.com/embed/" + data.video;
-    }
+  if(data){
+    document.getElementById("downloadBtn").href = data.apk;
+    document.getElementById("videoFrame").src =
+      "https://www.youtube.com/embed/" + data.video;
+  }
 });
-
 </script>
 
 </body>
